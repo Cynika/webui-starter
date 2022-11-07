@@ -12,7 +12,7 @@ from starter.arg_data import VRAM_ranges, hypernetworks_dir, model_dir, emb_dir,
 def ui(app_data, tree_data):
     root = tkinter.Tk()
     sv_ttk.set_theme("light")
-    root.title('webui配置启动器1.0 @cynika')
+    root.title('webui配置启动器1.0 bug及建议请私信cynika@bilibili')
     app = App(root, app_data, tree_data)
     app.bind_event()
     app.pack(expand=True, fill="both")
