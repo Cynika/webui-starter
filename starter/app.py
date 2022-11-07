@@ -153,10 +153,12 @@ class Paned(ttk.PanedWindow):
             *[(3, x, x, []) for x in self.tree_data[2]],
             *[(4, x, x, []) for x in self.tree_data[3]]
         ]
-
         for item in tree_data:
             parent, iid, text, values = item
-            self.tree1.insert(parent=parent, index="end", iid=iid, text=text, values=values)
+            try:
+                self.tree1.insert(parent=parent, index="end", iid=iid, text=text, values=values)
+            except Exception as e:
+                print(e)
 
 
 class More(ttk.Frame):
