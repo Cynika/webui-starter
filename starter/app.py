@@ -33,7 +33,7 @@ def set_win_center(root):
 
 class CheckBoxs(ttk.LabelFrame):
     def __init__(self, parent):
-        super().__init__(parent, text="组件启动项", padding=10)
+        super().__init__(parent, text="组件启动项", padding=5)
         self.vars = {}
         for key in component_list:
             self.vars.update({key: tkinter.IntVar()})
@@ -43,7 +43,7 @@ class CheckBoxs(ttk.LabelFrame):
     def add_widgets(self):
         n = 0
         for key, value in self.vars.items():
-            ttk.Checkbutton(self, text=key, variable=value).grid(row=n, column=0, padx=(0, 5), pady=5, sticky="w")
+            ttk.Checkbutton(self, text=key, variable=value).grid(row=n, column=0, padx=(0, 3), pady=3, sticky="w")
             n = n + 1
 
         self.button = ttk.Button(self, text="deepdanbooru\n需安装CUDA驱动")
@@ -211,7 +211,7 @@ class App(ttk.Frame):
 
     @staticmethod
     def cuda(event):
-        open_web("http://https://developer.nvidia.com/cuda-downloads")
+        open_web("https://developer.nvidia.com/cuda-downloads")
 
     @staticmethod
     def more(event):

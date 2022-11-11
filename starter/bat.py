@@ -36,4 +36,4 @@ def update_bat():
 
 
 def open_web(site):
-    Popen("start " + site)
+    os.system("start " + site)
