@@ -228,6 +228,6 @@ class App(ttk.Frame):
         self._Button.togglebutton.bind('<Button-1>', self.start_webui)
         self._Button.accentbutton1.bind('<Button-1>', self.update_webui)
         self._Button.accentbutton2.bind('<Button-1>', self.doc)
-        self._Button.accentbutton3.bind('<Button-1>', self.doc)
+        self._Button.accentbutton3.bind('<Button-1>', self.painthua)
         self._CheckBox.button.bind('<Button-1>', self.cuda)
         self._more.morebutton.bind('<Button-1>', self.more)
