@@ -116,6 +116,9 @@ class Buttons(ttk.Frame):
         self.accentbutton2 = ttk.Button(self, text="信息并联计划(社群,工具站)", style="Accent.TButton")
         self.accentbutton2.grid(row=7, column=0, padx=5, pady=10, sticky="ew")
 
+        self.accentbutton3 = ttk.Button(self, text="启动OutPainting网站", style="Accent.TButton")
+        self.accentbutton3.grid(row=8, column=0, padx=5, pady=10, sticky="ew")
+
 
 class Paned(ttk.PanedWindow):
     def __init__(self, parent, tree_data):
@@ -217,9 +220,14 @@ class App(ttk.Frame):
     def more(event):
         open_web("https://space.bilibili.com/3089593/article")
 
+    @staticmethod
+    def painthua(event):
+        open_web("https://www.painthua.com/")
+
     def bind_event(self):
         self._Button.togglebutton.bind('<Button-1>', self.start_webui)
         self._Button.accentbutton1.bind('<Button-1>', self.update_webui)
         self._Button.accentbutton2.bind('<Button-1>', self.doc)
+        self._Button.accentbutton3.bind('<Button-1>', self.doc)
         self._CheckBox.button.bind('<Button-1>', self.cuda)
         self._more.morebutton.bind('<Button-1>', self.more)

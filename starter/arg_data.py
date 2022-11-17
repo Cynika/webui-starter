@@ -4,6 +4,7 @@ VRAM_args = {"无有效显存": "", "2G显存": "--lowvram", "4G显存": "--medv
 cmpt_args = {"正常模式(无需兼容)": "", "16xx显卡兼容模式": "--precision full --no-half"}
 GPU_args = {"0": "--skip-torch-cuda-test --precision full --no-half --use-cpu all", "1": ""}
 component_args = {"xformers优化": "--xformers", "share公开": "--share", "api接口": "--api",
+                  "OutPaint(√api)": "--cors-allow-origins=https://www.painthua.com --api",
                   "deepdanbooru": "--deepdanbooru", "UI夜间模式": "--theme=dark"}
 
 update_file = "./update_webui更新.bat"
