@@ -43,14 +43,14 @@ def check_gpu():
     ram = None
     mode = 1
     cmpt = 0
+    size = "无有效显存"
     try:
         name = run_cmd(gpu_cmd).replace("\n", "")
         ram = int(int(run_cmd(ram_cmd)) / 1024)
+        size = [key for key, (low, high) in VRAM_ranges.items() if low <= ram <= high][0]
     except Exception as e:
         mode = 0
         print(e)
-
-    size = [key for key, (low, high) in VRAM_ranges.items() if low <= ram <= high][0]
     if "16" in name:
         cmpt = 1
     return name, size, mode, cmpt, ram
@@ -76,10 +76,10 @@ def list_file():
 
 
 if __name__ == "__main__":
-    gpu_name, vram_size, gpu_mode, cmpt_16xx, ram = check_gpu()
+    gpu_name, vram_size, gpu_mode, cmpt_16xx, vram = check_gpu()
     data = gpu_name, vram_size, gpu_mode, cmpt_16xx
     if gpu_mode == 1:
-        messagebox.showinfo('提示', '已找到NVIDIA显卡\n' + gpu_name + ' ' + str(ram) + "GB")
+        messagebox.showinfo('提示', '已找到NVIDIA显卡\n' + gpu_name + ' ' + str(vram) + "GB")
     else:
         messagebox.showwarning('警告', '未找到NVIDIA显卡，请确保安装N卡及其驱动\n' + '已切换至CPU运算模式')
     files = list_file()
