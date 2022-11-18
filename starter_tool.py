@@ -46,13 +46,13 @@ def check_gpu():
     size = "无有效显存"
     try:
         name = run_cmd(gpu_cmd).replace("\n", "")
+        if "16" in name:
+            cmpt = 1
         ram = int(int(run_cmd(ram_cmd)) / 1024)
         size = [key for key, (low, high) in VRAM_ranges.items() if low <= ram <= high][0]
     except Exception as e:
         mode = 0
-        print(e)
-    if "16" in name:
-        cmpt = 1
+        print(e, "nvidia-smi未返回期望信息")
     return name, size, mode, cmpt, ram
 
 
